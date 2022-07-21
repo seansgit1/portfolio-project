@@ -1,14 +1,13 @@
 <!doctype html>
 <html lang="en">
-
   <head>
-    {% load staticfiles %}
+     {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.98.0">
-    <title>Sean Talbot</title>
+    <title>{{ blog.title }}}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/album/">
 
@@ -103,7 +102,7 @@
           <a class="nav-link" href="{% static 'resume.pdf' %}">resume</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'allblogs' %}">bLog</a>
+          <a class="nav-link active" href="{% url 'allblogs' %}">bLog</a>
         </li>
 
           </ul>
@@ -115,42 +114,20 @@
 </header>
 
 <main>
-
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Hi, I'm Sean</h1>
-        <p class="lead text-muted">My stuff</p>
-        <p>
-          <a href="mailto:simon.small141@gmail.com" class="btn btn-primary my-2">Mail me</a>
-
-        </p>
-        <img src="{% static 'Sean.jpg' %}" height = "300">
-      </div>
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
     <div class="container">
 
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        {% for job in jobs.all %}
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="card-img-top" src="{{ job.image.url }}"</img>
-            <div class="card-body">
-              <p class="card-text">{{ job.summary }}</p>
-
-            </div>
-          </div>
-        </div>
-        {% endfor %}
+    <h1 class="text-center pt-3">{{ blog.title }}</h1>
+        <br/>
+        <p class="text-center">{{ blog.pub_date }}</p>
+   <img class= "img-fluid" src="{{ blog.image.url }}" />
 
 
-      </div>
-    </div>
-  </div>
+    <br/>
 
+    <br/>
+      <p>{{ blog.body }}</p>
+
+ </div>
 </main>
 
 <footer class="text-muted py-5">
